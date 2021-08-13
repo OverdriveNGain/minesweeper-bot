@@ -1,9 +1,4 @@
-# boardWidth = 18
-# boardHeight = 14
-# boardMinPoint = [0,146]
-# boardMaxPoint = [675,671]
-
-# https://minesweeperonline.com/
+# https://minesweeperonline.com/ maximized to the left
 boardMinPoint = (89,161)
 boardMaxPoint = (569,417)
 boardFirstCell = (105, 177)
@@ -28,6 +23,8 @@ boardPixelWidth = boardMaxPoint[0] - boardMinPoint[0]
 boardPixelHeight = boardMaxPoint[1] - boardMinPoint[1]
 boardWidth = round(boardPixelWidth / (boardFirstCell[0] - boardMinPoint[0]))
 boardHeight = round(boardPixelHeight / (boardFirstCell[1] - boardMinPoint[1]))
+print(boardWidth)
+print(boardHeight)
 cellWidth = boardPixelWidth / boardWidth
 cellHeight = boardPixelHeight / boardHeight
 testingCellWidth = cellWidth - cellTestingPadding * 2

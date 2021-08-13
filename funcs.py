@@ -2,6 +2,7 @@ import pyautogui as oto
 from pyscreeze import showRegionOnScreen
 import constants as const
 import math
+import time
 
 def clickAtCell(x, y, modifier = 'left'):
     cellSize = const.cellWidth
@@ -31,8 +32,6 @@ def getValues(lastBoard):
     for y in range(const.boardHeight):
         for x in range(const.boardWidth):
             if (board[x][y] < 0):
-    # for y in range(6):
-    #     for x in range(6):
                 board[x][y] = inspect(regionScreenshot, x, y)
 
     return board
@@ -112,10 +111,9 @@ def markObvious(board, mines):
                                     mines -= 1
                                     print(f"Marking mine at ({x + dx},{y + dy}). {mines} mine(s) left")
                 elif (val == flags and unknown > 0):
-                    # print(f"Mark2 at ({x},{y})")
                     actioned = True
                     board[x][y] = val
-                    clickAtCell(x, y, 'middle')
+                    clickAtCell(x, y, 'left')
                     # for dx in range(-1, 2):
                     #     for dy in range(-1, 2):
                     #         if (0 <= x + dx < const.boardWidth and 0 <= y + dy < const.boardHeight):
@@ -199,17 +197,6 @@ def mark12(board, mines, subtractedBoard):
         positions = [position for position in positions if subtractedBoard[position[0]][position[1]] == -10]
         if (len(positions) == 1 and board[positions[0][0]][positions[0][1]] != 12):
             m = flag(positions[0][0], positions[0][1], board, mines)
-            # print("------------------------")
-            # print(x)
-            # print(y)
-            # print(mines)
-            # print(dir)
-            # print(nEdge)
-            # print(sEdge)
-            # print(wEdge)
-            # print(eEdge)
-            # print(positions)
-            # print(unFilteredDebugPositions)
             return (True, m[0], m[1])
         return (False, board,mines)
 

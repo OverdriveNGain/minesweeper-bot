@@ -22,21 +22,8 @@ while True:
         if actioned:
             continue
 
-        # break
         subtractedBoard = funcs.getSubtractedBoard(board)
-
-        # funcs.printBoard(board)
-        # print("------------------------")
-        # funcs.printBoard(subtractedBoard)
-        # input("Press enter to proceed with 1-2 rule")
-
         actioned, mines = funcs.mark12(board, mines, subtractedBoard)
-
-
-        # funcs.printBoard(board)
-        # print("------------------------")
-        # funcs.printBoard(subtractedBoard)
-        # input("Press enter to continue")
 
         if actioned:
             continue
@@ -44,5 +31,4 @@ while True:
         
     if (mines == 0):
         break
-    # funcs.printBoard(board)
 print("Done!")

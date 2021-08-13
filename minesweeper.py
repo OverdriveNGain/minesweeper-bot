@@ -11,24 +11,38 @@ while True:
     mines = funcs.getMineCount()
     for i in range(9999):
         print(f"Cycle {i}")
-        board= funcs.getValues(board)
-        # funcs.printBoard(board)
-        # input("Press enter to proceed with marking obvious")
-        # time.sleep(1)
-        actioned, mines = funcs.markObvious(board, mines)
-        # funcs.printBoard(board)
-        # input("Press enter to proceed with next cycle")
-        # time.sleep(1)
 
-        # print(f"-----------------------------------------{i}")
-        # print(f"Cycle {i} done")
+        board= funcs.getValues(board)
+
+        actioned, mines = funcs.markObvious(board, mines)
+
         if (mines == 0):
             break
 
         if actioned:
             continue
+
+        # break
+        subtractedBoard = funcs.getSubtractedBoard(board)
+
+        # funcs.printBoard(board)
+        # print("------------------------")
+        # funcs.printBoard(subtractedBoard)
+        # input("Press enter to proceed with 1-2 rule")
+
+        actioned, mines = funcs.mark12(board, mines, subtractedBoard)
+
+
+        # funcs.printBoard(board)
+        # print("------------------------")
+        # funcs.printBoard(subtractedBoard)
+        # input("Press enter to continue")
+
+        if actioned:
+            continue
+        break
         
     if (mines == 0):
         break
-    break
+    # funcs.printBoard(board)
 print("Done!")

@@ -3,11 +3,10 @@
 
 0 : opened, none
 1 to 8 : opened, mine nearby, evaluated
-12 : unopeded, mine, marked
+12 : marked mine
 
 
 # NOT DONE CHECKING
 
 -1 to -8 : opened, mine nearby, unevaluated
 -10 : unopened
--11 : opened, not inspected
